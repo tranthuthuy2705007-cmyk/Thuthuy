@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thy.Handmade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">Thy.Handmade</div>
+        <input class="search" placeholder="Tìm kiếm sản phẩm...">
+        <div class="menu">
+            <a href="Đăng-nhập.html" class="menu-link">
+                <i class="fa-regular fa-user"></i> Đăng nhập
+            </a>
+            <a href="Đơn-hàng.html" class="menu-link">
+                <i class="fa-solid fa-box"></i> Đơn hàng
+            </a>
+            <a href="Giỏ-hàng.html" class="menu-link">
+                <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng 
+            </a>
+        </div>
+    </div>
+
+    <div class="nav-bar">
+        <div class="menu-item dropdown">
+            <span class="title">☰ DANH MỤC SẢN PHẨM</span>
+            <ul class="submenu">
+				<li><a href="#" class="filter-btn" data-filter="all">Tất cả sản phẩm</a></li>
+				<li><a href="#" class="filter-btn" data-filter="tui">Túi</a></li>
+				<li><a href="#" class="filter-btn" data-filter="hoa">Hoa</a></li>
+				<li><a href="#" class="filter-btn" data-filter="len">Len</a></li>
+				<li><a href="#" class="filter-btn" data-filter="kep-toc">Kẹp tóc</a></li>
+				<li><a href="#" class="filter-btn" data-filter="de-coc">Đế cốc</a></li>
+				<li><a href="#" class="filter-btn" data-filter="moc-khoa">Móc khóa</a></li>
+			</ul>	
+            
+        </div>
+
+        <div class="menu-item dropdown">
+            <a href="#hang-moi" class="title">HÀNG MỚI</a>
+            <ul class="submenu">
+                <li><a href="#"class="filter-btn" data-filter="tui">Hàng mới về tuần này</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-item dropdown">
+            <a href="#khuyen-mai" class="title">KHUYẾN MÃI</a>
+            <ul class="submenu">
+                <li><a href="#"class="filter-btn" data-filter="de-coc">Giảm giá 50%</a></li>
+                <li><a href="#"class="filter-btn" data-filter="moc-khoa">Mua 1 tặng 1</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-item dropdown">
+            <a href="#ban-chay" class="title">BÁN CHẠY</a>
+            <ul class="submenu">
+                <li><a href="#"class="filter-btn" data-filter="gau">Top 10 gấu</a></li>
+                <li><a href="#"class="filter-btn" data-filter="kep-toc">Kẹp tóc bán chạy</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-item dropdown">
+            <span class="title">LIÊN HỆ</span>
+            <ul class="submenu">
+                <li><a href="https://web.facebook.com/" target="_blank">Facebook: Thy.Handmade</a></li>
+                <li><a href="https://www.instagram.com/" target="_blank">Instagram: _ththy.07_</a></li>
+                <li><a href="tel:0327568467">Hotline: 0327568467</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="hero-slider-section">
+        <div class="hero-slider" id="heroSlider">
+            <div class="slide active">
+                <img src="images\bìa1.png"  alt="Bìa1"> </div>
+            <div class="slide">
+                <img src="images\bìa2.png" alt="Bìa 2"> </div>
+            <div class="slide">
+                <img src="images\bìa3.png" alt="Bìa 3"> </div>
+        </div>
+        <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+	
+	
+		<div class="container-main">
+    
+    <aside class="sidebar-filter">
+        <div class="filter-group">
+            <h3 class="filter-title">GIỚI TÍNH</h3>
+            <ul class="filter-list">
+                <li><input type="checkbox" id="boy"><label for="boy"> TRAI</label></li>
+                <li><input type="checkbox" id="girl"><label for="girl"> GÁI</label></li>
+                <li><input type="checkbox" id="unisex"><label for="unisex">UNISEX</label></li>
+            </ul>
+        </div>
+
+        <div class="filter-group">
+            <h3 class="filter-title">ĐỘ TUỔI</h3>
+            <ul class="filter-list">
+                <li><input type="checkbox" id="age1"><label for="age1">0 - 6 Tháng</label></li>
+                <li><input type="checkbox" id="age2"><label for="age2">6 - 12 Tháng</label></li>
+                <li><input type="checkbox" id="age3"><label for="age3">1 - 5 Tuổi</label></li>
+                <li><input type="checkbox" id="age4"><label for="age4">5 - 15 Tuổi</label></li>
+                <li><input type="checkbox" id="age5"><label for="age5">Trên 15 Tuổi</label></li>
+            </ul>
+        </div>
+
+        <div class="filter-group">
+            <h3 class="filter-title">THƯƠNG HIỆU</h3>
+            <ul class="filter-list">
+                <li><input type="checkbox" id="brand1"><label for="brand1">AVENGERS</label></li>
+                <li><input type="checkbox" id="brand2"><label for="brand2">BRIGHT STARTS</label></li>
+                <li><input type="checkbox" id="brand3"><label for="brand3">BARBIE</label></li>
+                <li><input type="checkbox" id="brand4"><label for="brand4">ROBICRAFT</label></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="content-right">
+    <div class="title" id="page-title" style="text-align: left; margin-left: 0;">Tất cả sản phẩm</div>
+			<script src="java.js"></script>
+    <div class="products-grid-container">
+        <div class="products">
+            
+            <div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep17.jpg" alt="Kẹp tóc">
+				<img src="images\kep16.jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc vịt vàng</h4>
+                <div class="price">20.500đ</div>
+            </div>
+
+            <div class="card" data-category="moc-khoa">
+				<div class="img-box">
+                <img src="images\moc6.jpg" alt="Gấu đan">
+				<img src="images\moc1.jpg" alt="Gấu đan">
+				</div>
+                <h4>Móc khóa đầu heo</h4>
+                <div class="price">33.980đ</div>
+			</div>
+
+            <div class="card" data-category="tui">
+				<div class="img-box">
+                <img src="images\adj1 (23).jpg" alt="Túi đan">
+				<img src="images\adj1 (24).jpg" alt="Túi đan">
+				</div>
+                <h4>Túi đan nơ </h4>
+                <div class="price">160.000đ</div>
+            </div>
+
+            <div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images/adj1 (50).jpg" alt="Hoa gấu">
+				<img src="images\adj1 (51).jpg" alt="Hoa gấu">
+				</div>
+                <h4>Set hộp hoa tulip</h4>
+                <div class="price">372.345đ</div>
+            </div>
+			
+			
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep18.jpg" alt="Kẹp tóc">
+				<img src="images\kep16.jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc hoa</h4>
+                <div class="price">30.000đ</div>
+            </div>
+
+            <div class="card" data-category="gau">
+				<div class="img-box">
+                <img src="images\gau11.jpg" alt="Gấu đan">
+				<img src="images\gau11.jpg" alt="Gấu đan">
+				</div>
+                <h4>Gấu bông len</h4>
+                <div class="price">200.000đ</div>
+            </div>
+
+            <div class="card" data-category="tui">
+				<div class="img-box">
+                <img src="images\adj1 (12).jpg" alt="Túi đan">
+				<img src="images\tui100.jpg" alt="Túi đan">
+				</div>
+                <h4>Túi đeo chéo trẻ con</h4>
+                <div class="price">148.570đ</div>
+            </div>
+
+            <div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\hoa3.jpg" alt="Hoa gấu">
+				<img src="images\hoa2.jpg" alt="Hoa gấu">
+				</div>
+                <h4>Chậu hoa mini</h4>
+                <div class="price">50.000đ</div>
+            </div>
+			
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep23.jpg" alt="Kẹp tóc">
+				<img src="images\kep20.jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc thỏ</h4>
+                <div class="price">20.000đ</div>
+            </div>
+
+            <div class="card" data-category="gau">
+				<div class="img-box">
+                <img src="images\gau10.jpg" alt="Gấu đan">
+				<img src="images\gau10.jpg" alt="Gấu đan">
+				</div>
+                <h4>Gấu đan dễ thương</h4>
+                <div class="price">39.000đ</div>
+            </div>
+
+            <div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\adj1 (41).jpg" alt="Hoa ">
+				<img src="images\adj1 (37).jpg" alt="Hoa ">
+				</div>
+                <h4>Lọ hoa hướng dương</h4>
+                <div class="price">300.000đ</div>
+            </div>
+
+            <div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\Hoa17.jpg" alt="Hoa ">
+				<img src="images\Hoa18.jpg" alt="Hoa ">
+				</div>
+              <h4>Bó hoa len </h4>
+                <div class="price">100.000đ</div>
+            </div>
+
+
+
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images/adj1 (1).jpg" alt="Kẹp tóc">
+				<img src="images\adj1 (15).jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc</h4>
+                <div class="price">20.000đ</div>
+            </div>
+
+            <div class="card" data-category="gau">
+				<div class="img-box">
+                <img src="images/adj1 (13).jpg" alt="Gấu đan">
+				<img src="images\adj1 (11).jpg" alt="Gấu đan">
+				</div>
+                <h4>Gấu đan</h4>
+                <div class="price">19.000đ</div>
+            </div>
+
+            <div class="card" data-category="tui">
+				<div class="img-box">
+                <img src="images/adj1 (25).jpg" alt="Túi đan">
+				<img src="images\adj1 (49).jpg"alt="Túi đan">
+				</div>
+                <h4>Túi đan</h4>
+                <div class="price">160.000đ</div>
+            </div>
+
+            <div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\adj1 (6).jpg" alt="Kẹp tóc">
+				<img src="images\adj1 (38).jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc</h4>
+                <div class="price">10.000đ</div>
+            </div>
+
+            <div class="card" data-category="gau">
+				<div class="img-box">
+                <img src="images\gau13.jpg" alt="Gấu đan">
+				<img src="images\gau12.jpg" alt="Gấu đan">
+				</div>
+                <h4>Gấu đan dễ thương</h4>
+                <div class="price">199.000đ</div>
+            </div>
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep4.jpg" alt="Kẹp tóc">
+				<img src="images\kep3.jpg"alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc</h4>
+                <div class="price">20.000đ</div>
+            </div>
+
+            <div class="card" data-category="tui">
+				<div class="img-box">
+                <img src="images\adj1 (32).jpg" alt="Túi đan">
+				<img src="images\adj1 (23).jpg" alt="Túi đan">
+				</div>
+                <h4>Túi handmade</h4>
+                <div class="price">320.000đ</div>
+            </div>
+
+            <div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\hoa11.jpg"alt="Hoa ">
+				<img src="images\hoa12.jpg"alt="Hoa ">
+				</div>
+                <h4>Hoa nụ len </h4>
+                <div class="price">33.000đ</div>
+            </div>
+			
+			<div class="card" data-category="tui">
+				<div class="img-box">
+                <img src="images\adj1 (31).jpg" alt="Túi đan">
+				<img src="images\adj1 (31).jpg" alt="Túi đan">
+				</div>
+                <h4>Túi nơ xanh</h4>
+                <div class="price">360.000đ</div>
+            </div>
+			
+			<div class="card" data-category="de-coc">
+				<div class="img-box">
+                <img src="images\adj1 (35).jpg" alt="Đế cốc">
+				<img src="images\adj1 (46).jpg" alt="Đế cốc">
+				</div>
+                <h4>Đế cốc len handmade</h4>
+                <div class="price">199.000đ</div>
+            </div>
+			
+			<div class="card" data-category="moc-khoa">
+				<div class="img-box">
+                <img src="images\mockhoa1.jpg" alt="Móc khóa">
+				<img src="images\moc8.jpg" alt="Móc khóa">
+				</div>
+                <h4>Móc khoá dễ thương </h4>
+                <div class="price">239.000đ</div>
+            </div>
+			
+			<div class="card" data-category="moc-khoa">
+				<div class="img-box">
+                <img src="images\moc1.jpg" alt="Móc khóa">
+				<img src="images\moc2.jpg" alt="Móc khóa">
+				</div>
+                <h4>Móc khóa làm quà tặng</h4>
+                <div class="price">129.000đ</div>
+            </div>
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep32.jpg" alt="Kẹp tóc">
+				<img src="images\kep31.jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc hình đa dạng</h4>
+                <div class="price">45.000đ</div>
+            </div>
+			
+			 <div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\adj1 (48).jpg"alt="Hoa ">
+				<img src="images\adj1 (53).jpg"alt="Hoa ">
+				</div>
+                <h4>Chậu hoa len  </h4>
+                <div class="price">100.000đ</div>
+            </div>
+			
+			<div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\hoa6.jpg"alt="Hoa ">
+				 <img src="images\hoa5.jpg"alt="Hoa ">
+				</div>
+                <h4>Hoa len mặt cười </h4>
+                <div class="price">155.000đ</div>
+            </div>
+			
+			<div class="card" data-category="tui">
+				<div class="img-box">
+                <img src="images\adj1 (10).jpg" alt="Túi đan">
+				<img src="images\adj1 (10).jpg" alt="Túi đan">
+				</div>
+                <h4>Túi lixi thỏ yêu</h4>
+                <div class="price">220.560đ</div>
+            </div>
+			
+			<div class="card" data-category="tui">
+				<div class="img-box">
+                <img src="images\adj1 (19).jpg" alt="Túi đan">
+				<img src="images\adj1 (26).jpg" alt="Túi đan">
+				</div>
+                <h4>Túi đeo chéo</h4>
+                <div class="price">180.000đ</div>
+            </div>
+			
+			<div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\Hoa20.jpg"alt="Hoa ">
+				<img src="images\Hoa16.jpg"alt="Hoa ">
+				</div>
+                <h4>Bó hoa len</h4>
+                <div class="price">222.000đ</div>
+            </div>
+			
+			<div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\boa1.jpg"alt="Hoa ">
+				<img src="images\boa1.jpg"alt="Hoa ">
+				</div>
+                <h4>Bó hoa hồng handmade</h4>
+                <div class="price">234.670đ</div>
+            </div>
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep26.jpg" alt="Kẹp tóc">
+				<img src="images\kep30.jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc hồng</h4>
+                <div class="price">39.500đ</div>
+            </div>
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep1.jpg" alt="Kẹp tóc">
+				<img src="images\kep3.jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp màu nâu</h4>
+                <div class="price">67.500đ</div>
+            </div>
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep24.jpg" alt="Kẹp tóc">
+				<img src="images\kep24.jpg" alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp đáng yêu</h4>
+                <div class="price">34.700đ</div>
+            </div>
+			
+			<div class="card" data-category="hoa">
+				<div class="img-box">
+                <img src="images\adj1 (57).jpg" alt="Đế cốc">
+				<img src="images\adj1 (59).jpg" alt="Đế cốc">
+				</div>
+                <h4>Lọ hoa dâu </h4>
+                <div class="price">199.000đ</div>
+            </div>
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep19.jpg"alt="Kẹp tóc">
+				<img src="images\kep15.jpg"alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp sin cậu bé bút chì</h4>
+                <div class="price">56.230đ</div>
+            </div>
+			
+			<div class="card" data-category="de-coc">
+				<div class="img-box">
+                <img src="images\adj1 (36).jpg" alt="Đế cốc">
+				<img src="images\adj1 (34).jpg" alt="Đế cốc">
+				</div>
+                <h4>Đế cốc có tay cầm</h4>
+                <div class="price">199.000đ</div>
+            </div>
+			
+			<div class="card" data-category="kep-toc">
+				<div class="img-box">
+                <img src="images\kep5.jpg"alt="Kẹp tóc">
+				<img src="images\kep15.jpg"alt="Kẹp tóc">
+				</div>
+                <h4>Kẹp tóc nấm</h4>
+                <div class="price">32.430đ</div>
+            </div>    
+</main>
+</div>
+	
+    <footer id="footer">
+        <div id="footer-content" class="footer-green">
+            <div class="footer-col">
+                <h3>GIỚI THIỆU</h3>
+                <ul>
+                    <li><a href="Cách đặt onl.html">Hướng Dẫn Đặt Hàng Online</a></li>
+                    <li><a href="thanh-toan.html">Thông Tin Thanh Toán</a></li>
+                    <li><a href="cua-hang.html">Cửa Hàng</a></li>
+                    <li><a href="lien-he.html">Liên Hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>KÊNH ONLINE</h3>
+                <ul>
+                    <li><a href="https://web.facebook.com/" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/" target="_blank">TikTok</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+   
+</body>
+</html>
