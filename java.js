@@ -1,76 +1,171 @@
+// lấy tất cả ảnh
+let slides = document.querySelectorAll(".slide");
+
+// lấy tất cả chấm tròn
+let dots = document.querySelectorAll(".dot");
+
+// ảnh đầu tiên
 let slideIndex = 0;
-        let timer;
-        
-        showSlides(slideIndex);
-        startTimer(); 
-        function moveSlide(n) {
-            showSlides(slideIndex += n);
-            resetTimer();
-        }
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-            resetTimer();
-        }
 
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
-            
-            if (n >= slides.length) { slideIndex = 0 }
-            if (n < 0) { slideIndex = slides.length - 1 }
-            
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            
-            slides[slideIndex].style.display = "block";
-            dots[slideIndex].className += " active";
-        }
 
-        function startTimer() {
-            timer = setInterval(function() {
-                moveSlide(1);
-            }, 2000); 
-        }
+// hàm hiện ảnh
+function showSlide() {
 
-        function resetTimer() {
-            clearInterval(timer);
-            startTimer();
-        }
-document.addEventListener("DOMContentLoaded", function () {
-    const filterBtns = document.querySelectorAll(".filter-btn");
-    const products = document.querySelectorAll(".card");
-    const pageTitle = document.getElementById("page-title"); 
-    filterBtns.forEach((btn) => {
-        btn.addEventListener("click", function (e) {
-            e.preventDefault();
-            const filterValue = this.getAttribute("data-filter").toLowerCase();
-            
-            const categoryName = this.textContent.trim().toUpperCase(); 
-            pageTitle.textContent = categoryName;
+    // ẩn tất cả ảnh
+    slides.forEach(function(slide) {
 
-            products.forEach((item) => {
-                const category = item.getAttribute("data-category").toLowerCase();
+        slide.style.display = "none";
 
-                item.style.opacity = "0";
-                item.style.transform = "scale(0.9)";
-
-                setTimeout(() => {
-                    if (filterValue === "all" || category === filterValue) {
-                        item.style.display = "block";
-                        setTimeout(() => {
-                            item.style.opacity = "1";
-                            item.style.transform = "scale(1)";
-                        }, 50);
-                    } else {
-                        item.style.display = "none";
-                    }
-                }, 300);
-            });
-        });
     });
+
+    // bỏ active tất cả dot
+    dots.forEach(function(dot) {
+
+        dot.classList.remove("active");
+
+    });
+
+    // hiện ảnh hiện tại
+    slides[slideIndex].style.display = "block";
+
+    // active dot hiện tại
+    dots[slideIndex].classList.add("active");
+}
+
+
+
+// nút next
+function moveSlide(n) {
+
+    // đổi ảnh
+    slideIndex = slideIndex + n;
+
+    // nếu quá ảnh cuối
+    if (slideIndex >= slides.length) {
+
+        slideIndex = 0;
+
+    }
+
+    // nếu nhỏ hơn 0
+    if (slideIndex < 0) {
+
+        slideIndex = slides.length - 1;
+
+    }
+
+    // hiện ảnh
+    showSlide();
+}
+
+
+
+// bấm dot
+function currentSlide(n) {
+
+    slideIndex = n;
+
+    showSlide();
+}
+
+
+
+// tự chạy slide
+setInterval(function() {
+
+    moveSlide(1);
+
+}, 2000);
+
+
+// hiện ảnh đầu tiên
+showSlide();
+
+
+// lấy nút lọc
+let filterButtons = document.querySelectorAll(".filter-btn");
+
+// lấy sản phẩm
+let products = document.querySelectorAll(".card");
+
+// tiêu đề
+let title = document.getElementById("page-title");
+
+
+
+// chạy từng nút
+filterButtons.forEach(function(button) {
+
+    // khi bấm nút
+    button.onclick = function(e) {
+
+        e.preventDefault();
+
+        // lấy loại
+        let filter = button.getAttribute("data-filter");
+
+        // đổi tiêu đề
+        title.innerText = button.innerText;
+
+        // chạy từng sản phẩm
+        products.forEach(function(product) {
+
+            // loại sản phẩm
+            let category = product.getAttribute("data-category");
+
+            // nếu là tất cả
+            if (filter == "all") {
+
+                product.style.display = "block";
+
+            }
+
+            // nếu giống loại
+            else if (filter == category) {
+
+                product.style.display = "block";
+
+            }
+
+            // khác loại thì ẩn
+            else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    };
+
+});
+
+
+// PHẦN GIỎ HÀNG
+// ====================
+
+let count = 0;
+
+// lấy icon số
+let cartCount = document.getElementById("cart-count");
+
+// lấy tất cả nút
+let cartButtons = document.querySelectorAll(".add-cart");
+
+// kiểm tra có tìm thấy không
+console.log(cartButtons);
+
+// thêm sự kiện
+cartButtons.forEach(function(button){
+
+    button.addEventListener("click", function(){
+
+        count++;
+
+        cartCount.innerText = count;
+
+        alert("Đã thêm vào giỏ hàng");
+
+    });
+
 });

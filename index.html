@@ -19,9 +19,11 @@
             <a href="Đơn-hàng.html" class="menu-link">
                 <i class="fa-solid fa-box"></i> Đơn hàng
             </a>
-            <a href="Giỏ-hàng.html" class="menu-link">
-                <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng 
-            </a>
+            <a href="Giỏ-hàng.html" class="menu-link cart-icon">
+				<i class="fa-solid fa-cart-shopping"></i>
+					Giỏ hàng
+				<span id="cart-count">0</span>
+			</a>
         </div>
     </div>
 
@@ -127,7 +129,7 @@
 
     <main class="content-right">
     <div class="title" id="page-title" style="text-align: left; margin-left: 0;">Tất cả sản phẩm</div>
-			<script src="java.js"></script>
+			
     <div class="products-grid-container">
         <div class="products">
             
@@ -138,6 +140,8 @@
 				</div>
                 <h4>Kẹp tóc vịt vàng</h4>
                 <div class="price">20.500đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="moc-khoa">
@@ -147,6 +151,8 @@
 				</div>
                 <h4>Móc khóa đầu heo</h4>
                 <div class="price">33.980đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
 			</div>
 
             <div class="card" data-category="tui">
@@ -156,6 +162,8 @@
 				</div>
                 <h4>Túi đan nơ </h4>
                 <div class="price">160.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="hoa">
@@ -165,6 +173,8 @@
 				</div>
                 <h4>Set hộp hoa tulip</h4>
                 <div class="price">372.345đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			
@@ -176,6 +186,8 @@
 				</div>
                 <h4>Kẹp tóc hoa</h4>
                 <div class="price">30.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="gau">
@@ -185,6 +197,8 @@
 				</div>
                 <h4>Gấu bông len</h4>
                 <div class="price">200.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="tui">
@@ -194,6 +208,8 @@
 				</div>
                 <h4>Túi đeo chéo trẻ con</h4>
                 <div class="price">148.570đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="hoa">
@@ -203,6 +219,8 @@
 				</div>
                 <h4>Chậu hoa mini</h4>
                 <div class="price">50.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			
@@ -213,6 +231,8 @@
 				</div>
                 <h4>Kẹp tóc thỏ</h4>
                 <div class="price">20.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="gau">
@@ -222,6 +242,8 @@
 				</div>
                 <h4>Gấu đan dễ thương</h4>
                 <div class="price">39.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="hoa">
@@ -231,6 +253,8 @@
 				</div>
                 <h4>Lọ hoa hướng dương</h4>
                 <div class="price">300.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="hoa">
@@ -240,6 +264,8 @@
 				</div>
               <h4>Bó hoa len </h4>
                 <div class="price">100.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
 
@@ -251,6 +277,8 @@
 				</div>
                 <h4>Kẹp tóc</h4>
                 <div class="price">20.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="gau">
@@ -260,6 +288,8 @@
 				</div>
                 <h4>Gấu đan</h4>
                 <div class="price">19.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="tui">
@@ -269,6 +299,8 @@
 				</div>
                 <h4>Túi đan</h4>
                 <div class="price">160.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="kep-toc">
@@ -278,6 +310,8 @@
 				</div>
                 <h4>Kẹp tóc</h4>
                 <div class="price">10.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="gau">
@@ -287,6 +321,8 @@
 				</div>
                 <h4>Gấu đan dễ thương</h4>
                 <div class="price">199.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="kep-toc">
@@ -296,6 +332,8 @@
 				</div>
                 <h4>Kẹp tóc</h4>
                 <div class="price">20.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="tui">
@@ -305,6 +343,8 @@
 				</div>
                 <h4>Túi handmade</h4>
                 <div class="price">320.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 
             <div class="card" data-category="hoa">
@@ -314,6 +354,8 @@
 				</div>
                 <h4>Hoa nụ len </h4>
                 <div class="price">33.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="tui">
@@ -323,6 +365,8 @@
 				</div>
                 <h4>Túi nơ xanh</h4>
                 <div class="price">360.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="de-coc">
@@ -332,6 +376,8 @@
 				</div>
                 <h4>Đế cốc len handmade</h4>
                 <div class="price">199.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="moc-khoa">
@@ -341,6 +387,8 @@
 				</div>
                 <h4>Móc khoá dễ thương </h4>
                 <div class="price">239.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="moc-khoa">
@@ -350,6 +398,8 @@
 				</div>
                 <h4>Móc khóa làm quà tặng</h4>
                 <div class="price">129.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="kep-toc">
@@ -359,6 +409,8 @@
 				</div>
                 <h4>Kẹp tóc hình đa dạng</h4>
                 <div class="price">45.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			 <div class="card" data-category="hoa">
@@ -368,6 +420,8 @@
 				</div>
                 <h4>Chậu hoa len  </h4>
                 <div class="price">100.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="hoa">
@@ -377,6 +431,8 @@
 				</div>
                 <h4>Hoa len mặt cười </h4>
                 <div class="price">155.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="tui">
@@ -386,6 +442,8 @@
 				</div>
                 <h4>Túi lixi thỏ yêu</h4>
                 <div class="price">220.560đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="tui">
@@ -395,6 +453,8 @@
 				</div>
                 <h4>Túi đeo chéo</h4>
                 <div class="price">180.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="hoa">
@@ -404,6 +464,8 @@
 				</div>
                 <h4>Bó hoa len</h4>
                 <div class="price">222.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="hoa">
@@ -413,6 +475,8 @@
 				</div>
                 <h4>Bó hoa hồng handmade</h4>
                 <div class="price">234.670đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="kep-toc">
@@ -422,6 +486,8 @@
 				</div>
                 <h4>Kẹp tóc hồng</h4>
                 <div class="price">39.500đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="kep-toc">
@@ -431,6 +497,8 @@
 				</div>
                 <h4>Kẹp màu nâu</h4>
                 <div class="price">67.500đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="kep-toc">
@@ -440,6 +508,8 @@
 				</div>
                 <h4>Kẹp đáng yêu</h4>
                 <div class="price">34.700đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="hoa">
@@ -449,6 +519,8 @@
 				</div>
                 <h4>Lọ hoa dâu </h4>
                 <div class="price">199.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="kep-toc">
@@ -458,6 +530,8 @@
 				</div>
                 <h4>Kẹp sin cậu bé bút chì</h4>
                 <div class="price">56.230đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="de-coc">
@@ -467,6 +541,8 @@
 				</div>
                 <h4>Đế cốc có tay cầm</h4>
                 <div class="price">199.000đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>
 			
 			<div class="card" data-category="kep-toc">
@@ -476,6 +552,8 @@
 				</div>
                 <h4>Kẹp tóc nấm</h4>
                 <div class="price">32.430đ</div>
+				
+				<button class="add-cart">Thêm vào giỏ</button>
             </div>    
 </main>
 </div>
@@ -502,6 +580,6 @@
         </div>
     </footer>
 
-   
+  <script src="java.js"></script> 
 </body>
 </html>
