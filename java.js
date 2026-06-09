@@ -141,124 +141,115 @@ filterButtons.forEach(function(button) {
 });
 
 
-// lưu các sản phẩm trong giỏ hàng
+// ==================== 3. PHẦN GIỎ HÀNG (SỬA LẠI ĐỂ HOẠT ĐỘNG VỚI THANH TRƯỢT) ====================
+
+// Thêm các biến đóng mở thanh trượt giỏ hàng
+let sidebarCart = document.getElementById("sidebar-cart");
+let cartOverlay = document.getElementById("cart-overlay");
+
+// Hàm Đóng / Mở giỏ hàng
+function openCart() {
+    sidebarCart.classList.add("open");
+    cartOverlay.classList.add("open");
+}
+function closeCart() {
+    sidebarCart.classList.remove("open");
+    cartOverlay.classList.remove("open");
+}
+
+// Bấm vào icon Giỏ hàng trên header thì mở giỏ hàng ra
+document.querySelector(".cart-icon").addEventListener("click", function(e) {
+    e.preventDefault(); // Ngăn trang web chuyển hướng
+    openCart();
+});
+
+// Bấm nút X hoặc bấm ra ngoài màn hình mờ thì đóng giỏ hàng
+document.getElementById("close-cart-btn").addEventListener("click", closeCart);
+cartOverlay.addEventListener("click", closeCart);
+
+
+// --- ĐOẠN LOGIC CỦA BẠN (Đã sửa lại ID cho khớp với HTML) ---
 let cart = [];
-
-// Hiển thị số lượng trên icon giỏ hàng
 let cartCount = document.getElementById("cart-count");
-
-// Nơi hiển thị danh sách sản phẩm
-let cartItems = document.getElementById("cart-items");
-
-// Nơi hiển thị tổng tiền
-let cartTotal = document.getElementById("cart-total");
-
-// Lấy tất cả nút "Thêm vào giỏ"
+let cartItems = document.getElementById("cart-items-container"); 
+let cartTotal = document.getElementById("cart-total-price");    
 let cartButtons = document.querySelectorAll(".add-cart");
 
-
-// Gắn sự kiện cho từng nút
 cartButtons.forEach(function(button){
-
     button.addEventListener("click", function(){
-
-        // Tìm thẻ sản phẩm chứa nút vừa bấm
         let card = this.closest(".card");
-
-        // Lấy tên sản phẩm
         let name = card.querySelector("h4").innerText;
-
-        // Lấy giá sản phẩm
         let priceText = card.querySelector(".price").innerText;
-
-        // Chuyển "200.000đ" thành số 200000
         let price = parseInt(priceText.replace(/\D/g,""));
-
-        // Lấy ảnh sản phẩm
         let image = card.querySelector("img").src;
 
-        // Kiểm tra sản phẩm đã có trong giỏ chưa
         let item = cart.find(p => p.name === name);
 
         if(item){
-
-            // Nếu có rồi thì tăng số lượng
             item.quantity++;
-
         }else{
-
-            // Nếu chưa có thì thêm mới vào giỏ
             cart.push({
-                name:name,
-                price:price,
-                image:image,
-                quantity:1
+                name: name,
+                price: price,
+                image: image,
+                quantity: 1
             });
-
         }
 
-        // Cập nhật lại giao diện giỏ hàng
         updateCart();
-
+        openCart(); // THÊM: Tự động trượt giỏ hàng ra khi khách vừa bấm mua
     });
-
 });
 
-
-// Hàm cập nhật giao diện giỏ hàng
 function updateCart(){
-
-    // Tổng số lượng sản phẩm
     let totalCount = 0;
-
-    // Tổng tiền
     let totalPrice = 0;
-
-    // Xóa danh sách cũ để render lại
     cartItems.innerHTML = "";
 
-    // Duyệt từng sản phẩm trong giỏ
-    cart.forEach(function(item,index){
+    if (cart.length === 0) {
+        cartItems.innerHTML = `<p style="text-align: center; color: #999; margin-top: 20px;">Giỏ hàng của bạn đang trống.</p>`;
+        cartCount.innerText = "0";
+        cartTotal.innerText = "0đ";
+        return;
+    }
 
-        // Cộng dồn số lượng
+    cart.forEach(function(item, index){
         totalCount += item.quantity;
-
-        // Cộng dồn tiền
         totalPrice += item.price * item.quantity;
 
-        // Hiển thị sản phẩm ra HTML
+        // Thay đổi giao diện HTML hiển thị cho đẹp giống mẫu bạn yêu cầu
         cartItems.innerHTML += `
             <div class="cart-item">
-
-                <img src="${item.image}" width="60">
-
-                <span>${item.name}</span>
-
-                <span>Số lượng: ${item.quantity}</span>
-
-                <button onclick="removeItem(${index})">
-                    Xóa
-                </button>
-
+                <img src="${item.image}" class="item-img">
+                <div class="item-info">
+                    <h3>${item.name}</h3>
+                    <p class="item-price">${item.price.toLocaleString("vi-VN")}đ</p>
+                    <div class="item-qty">
+                        <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                        <input type="number" value="${item.quantity}" readonly>
+                        <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
+                </div>
+                <span class="delete-item" onclick="removeItem(${index})">Xóa</span>
             </div>
         `;
     });
 
-    // Cập nhật số trên icon giỏ hàng
     cartCount.innerText = totalCount;
-
-    // Hiển thị tổng tiền
-    cartTotal.innerText =
-        totalPrice.toLocaleString("vi-VN") + "đ";
+    cartTotal.innerText = totalPrice.toLocaleString("vi-VN") + "đ";
 }
 
+// THÊM: Hàm tăng giảm số lượng bằng nút + và - trực tiếp trong giỏ hàng
+window.changeQuantity = function(index, change) {
+    cart[index].quantity += change;
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1); // Nếu giảm xuống 0 thì xóa luôn sản phẩm
+    }
+    updateCart();
+}
 
 // Hàm xóa sản phẩm khỏi giỏ
-function removeItem(index){
-
-    // Xóa sản phẩm theo vị trí
-    cart.splice(index,1);
-
-    // Cập nhật lại giao diện
+window.removeItem = function(index){
+    cart.splice(index, 1);
     updateCart();
 }
