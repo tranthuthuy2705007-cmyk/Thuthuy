@@ -116,7 +116,7 @@ filterButtons.forEach(function(button) {
             // nếu là tất cả
             if (filter == "all") {
 
-                product.style.display = "block";
+                product.style.display = "block";     // Toàn bộ sp hiện lên
 
             }
 
@@ -141,7 +141,7 @@ filterButtons.forEach(function(button) {
 });
 
 
-// ==================== 3. PHẦN GIỎ HÀNG (SỬA LẠI ĐỂ HOẠT ĐỘNG VỚI THANH TRƯỢT) ====================
+//  3. PHẦN GIỎ HÀNG 
 
 // Thêm các biến đóng mở thanh trượt giỏ hàng
 let sidebarCart = document.getElementById("sidebar-cart");
@@ -168,8 +168,7 @@ document.getElementById("close-cart-btn").addEventListener("click", closeCart);
 cartOverlay.addEventListener("click", closeCart);
 
 
-// --- ĐOẠN LOGIC CỦA BẠN (Đã sửa lại ID cho khớp với HTML) ---
-let cart = [];
+let cart = [];   // mảng lưu các sp đã hiện
 let cartCount = document.getElementById("cart-count");
 let cartItems = document.getElementById("cart-items-container"); 
 let cartTotal = document.getElementById("cart-total-price");    
@@ -180,7 +179,7 @@ cartButtons.forEach(function(button){
         let card = this.closest(".card");
         let name = card.querySelector("h4").innerText;
         let priceText = card.querySelector(".price").innerText;
-        let price = parseInt(priceText.replace(/\D/g,""));
+        let price = parseInt(priceText.replace(/\D/g,""));    // Chuyển từ chuỗi sang số
         let image = card.querySelector("img").src;
 
         let item = cart.find(p => p.name === name);
@@ -188,7 +187,7 @@ cartButtons.forEach(function(button){
         if(item){
             item.quantity++;
         }else{
-            cart.push({
+            cart.push({       //Thêm sp mới vào giỏ hàng
                 name: name,
                 price: price,
                 image: image,
@@ -204,7 +203,7 @@ cartButtons.forEach(function(button){
 function updateCart(){
     let totalCount = 0;
     let totalPrice = 0;
-    cartItems.innerHTML = "";
+    cartItems.innerHTML = "";  // xóa DL cũ trc khi thêm vào giỏ hàng
 
     if (cart.length === 0) {
         cartItems.innerHTML = `<p style="text-align: center; color: #999; margin-top: 20px;">Giỏ hàng của bạn đang trống.</p>`;
