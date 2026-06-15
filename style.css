@@ -653,3 +653,6 @@ body {
 .cart-overlay.open {
     display: block;
 }
+.chu-tui{
+    color: #ff5c93;
+}
